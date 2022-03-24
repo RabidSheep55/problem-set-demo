@@ -1,0 +1,403 @@
+{
+  "_id": "Reference",
+  "name": "Example Set",
+  "description": "Example set, shows off the features of this system",
+  "number": 0,
+  "questions_data": [
+    {
+      "title": "Introduction",
+      "master_content": [
+        {
+          "type": "text",
+          "data": "Welcome to our example Problem Set! In this system, pieces of teaching content are grouped in sets of problems, where each problem (or question) can contain any number of parts. Each problem has what we call *master content*, which holds information relevant to every part of a question; this is what you are reading right now!"
+        },
+        { "type": "media", "data": ["filetestingcat.png"] },
+        {
+          "type": "text",
+          "data": "As you can see, this section can be made up of text, images, embedded videos, and more!"
+        },
+        {
+          "type": "media",
+          "data": ["https://www.youtube.com/watch?v=4csYk2p-0io"]
+        }
+      ],
+      "parts": [
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "This is the first part to the introduction question for this example Set! Parts are a little more interesting than *master statements*, as this is where students and users can actually interact with the system through modules we call **response areas**."
+            },
+            {
+              "type": "text",
+              "data": "In the context of a Problem Set, these *response areas* are where students can check their answers to a question part. For example, let's say the answer to the following area is the number `42`, give it a try!"
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "TextInput",
+                "answer": 42,
+                "gradeFunction": "isExactEqual",
+                "gradeParams": { "type": "int" }
+              }
+            },
+            {
+              "type": "text",
+              "data": "Great! Now you can move on part (b) for the next steps in this introduction."
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "As this system is oriented towards science, math and engineering related learning, it fully supports equation and symbol rendering via LaTeX and MathJax. Equations and symbols can either be inline (\\( \\pi = 3\\)), or displayed on separate lines, like so:"
+            },
+            {
+              "type": "latex",
+              "data": "P_{,i} + \\rho f^{b}_{i} + \\mu v_{i,jj} = \\rho \\frac{D v_i}{D t} + \\rho v_{i,j} v_j"
+            },
+            {
+              "type": "text",
+              "data": "This also means users can enter mathematical expressions when checking their answers in certain *response fields*. For example, the correct answer for the area coming up is \\(2*x^2 + 3*x + 4 \\)"
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "ExpressionInput",
+                "pre_response_text": "\\( f(x) = \\)",
+                "answer": "2*x**2 + 3*x + 4",
+                "gradeFunction": "symbolicEqual"
+              }
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "In order to provide styling and formatting control to authors in this system, all text areas support [markdown](https://daringfireball.net/projects/markdown/). This makes making thing **bold** or *italic* very easy. \n\n * You can have lists, like this one\n * Embed snippets of `code`\n * Create [links](https://www.imperial.ac.uk/)\n * ..."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Response Area types",
+      "master_content": [
+        {
+          "type": "text",
+          "data": "Currently, the system admits a set amount of different *response areas* types. Numeric, Matrix and Function are some of the ones you have already seen. Each part of this question will act as a reference to all the types currently available."
+        },
+        {
+          "type": "text",
+          "data": "Particular care was taken to make sure that the application's architecture could very easily accommodate for new types of response areas. Adding a new module only requires the creation of a new React Component (which includes front-end logic) and a Cloud Function (which deals with *grading* and providing *feedback*)!."
+        },
+        {
+          "type": "text",
+          "data": "It is useful to note here that how a *response area* is displayed on the page, and how it's response is graded are two distinct things. For example, we could have a simple text field (like in part (a)), graded using a exact equality, abolute or relative numeric tolerances or anything for that matter. These grading behaviours correspond to different *Grading Functions* which are modularly plugged in to any response area, we'll go into more detail in part 3 of this example set."
+        }
+      ],
+      "parts": [
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "This text response area is probably the most simple, it will take in anything typed in by the user. Now although they might look the same, two text response areas could have completely different grading engines. For example, the answer to the first area is `incompressible`, but the answer to the second one is the number `64`:"
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "TextInput",
+                "isStandalone": true,
+                "answer": "incompressible",
+                "gradeFunction": "isExactEqual",
+                "gradeParams": { "type": "str" }
+              }
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "TextInput",
+                "isStandalone": true,
+                "answer": 64,
+                "gradeFunction": "isExactEqual",
+                "gradeParams": { "type": "float" }
+              }
+            },
+            {
+              "type": "text",
+              "data": "Feel free to test the limits for each of those. Whether the second response area should accept `64.0`, or `63 + 1` is up to the author. However, to avoid confusion, questions should make it clear to the user what is allowed and what isnt."
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "Here's another very simple Response area type: True or False. It does exactly what the name implies... (the answer is True by the way)"
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "TrueFalse",
+                "answer": 1,
+                "gradeFunction": "isExactEqual",
+                "gradeParams": { "type": "int" }
+              }
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "Another basic response area type might be multiple choice:"
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "MultipleChoice",
+                "options": [
+                  "First option",
+                  "Second option",
+                  "Third (and correct) option"
+                ],
+                "answer": [0, 0, 1],
+                "gradeFunction": "arrayEqual"
+              }
+            },
+            {
+              "type": "text",
+              "data": "As you can see, symbolic mathematical expressions can be added as options, which can also optionally be shuffled on page reload. (Answer is \\( \\pi = 3 \\) and \\( 3 = \\pi \\))"
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "MultipleChoice",
+                "options": [
+                  "\\( 4x^2 + 2 = \\frac{\\delta y}{\\delta x} \\)",
+                  "\\( \\pi = 3 \\)",
+                  "\\( K_{iakb} U^{b}_{k} = f^{a}_{i} \\)",
+                  "\\( 3 = \\pi \\)"
+                ],
+                "answer": [0, 1, 0, 1],
+                "shuffle": true,
+                "gradeFunction": "arrayEqual"
+              }
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "Often times in engineering related questions, the correct answer might involve units. Which is where the next response area comes in. As mentionned previously, the Grading Engine can be swapped out with anything, in this case we chose to verify answers using the Wolfram|Alpha API. The answer is \\( 150\\ g \\)."
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "NumericUnits",
+                "answer": "150 g",
+                "gradeFunction": "wolframAlphaEqual"
+              }
+            },
+            {
+              "type": "text",
+              "data": "Thanks to the freedom supplied by this grading function, we can harness the full strength of the WolframAlpha engine on each request. This means that responses are especially open: for example they can given as \\(0.15\\ \\mathrm{kg}\\), \\(0.33\\ \\mathrm{pounds}\\), \\(0.15\\ \\mathrm{N/(m /s^2)}\\),... This is really powerful, and authors should be mindful of this."
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "Matrices are often difficult and annoying to enter in online grading systems, that's why we created an area dedicated to them! The answer to this next one is:"
+            },
+            {
+              "type": "latex",
+              "data": "\\pmatrix{ 3 \\pm 0.5 & 1 \\pm 0.5 \\\\ 4 \\pm 0.5 & 1 \\pm 0.5}"
+            },
+            {
+              "type": "text",
+              "data": "Feel free to try it out below! In this example, we also made the grading flexible with an absolute tolerance of 0.5."
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "Matrix",
+                "shape": [2, 2],
+                "gradeFunction": "arrayEqual",
+                "gradeParams": { "atol": 0.5 },
+                "answer": [
+                  [3, 1],
+                  [4, 1]
+                ]
+              }
+            },
+            {
+              "type": "text",
+              "data": "Again, there is nothing stopping the answer to each of the cells of the matrix to be equations, symbols, math or latex! But this should be made clear by the question."
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "Symbolic expressions are a huge part of math related learning. They pose two interesting problems in this system:\n\n* Finding an intuitive and easy way for users to enter expressions on the page\n* Finding a reliable way to verify and grade these expressions"
+            },
+            {
+              "type": "text",
+              "data": "In order to help with the user experience, this ExpressionInput response area will render out how the user's input was interpreted by the grading function. The answer to the following area is \\( 4x + 1\\)."
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "ExpressionInput",
+                "answer": "4*x + 1",
+                "gradeFunction": "symbolicEqual"
+              }
+            },
+            {
+              "type": "text",
+              "data": "*Note*: The SymbolicEqual grading function uses sympy for symbolic expression parsing, meaning answers like `4x+1` will return an error (`4*x+1` is correct). Querks and limitations of grading functions attached to response areas should be communicated to the user in order to limit confusion and frustration."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Answers and Worked Solutions",
+      "master_content": [
+        {
+          "type": "text",
+          "data": "Up to now, question parts have only contained text, response areas or media. In the context of an online problem set, the idea of making a question's correct answer available to the student has to be carefully implemented. Particular attention to student behavior and learning philosophy was taken when designing this module. It needs to be far enough out of reach such that they will attempt the question, while still providing the adequate amount of support for an enjoyable experience. "
+        },
+        {
+          "type": "text",
+          "data": "This system provides three different ways to provide answers and guidance to the student: Final Answer, Worked Solutions and Structured Tutorial. Each question part can have any combination of those three, and they are made available in the *help* menu."
+        }
+      ],
+      "parts": [
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "Final Answer: As the name suggests, this section displays just the final answer to a question part."
+            }
+          ],
+          "final_answer": [
+            {
+              "type": "text",
+              "data": "Content here should be kept brief and to the point, the user expects to quickly find the final answer to their question."
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "Worked Solutions: This section aims to guide the student to the correct answer, instead of showing it immediately. This is especially useful for someone who might be struggling with how to start a question. Solution steps are intentionally hidden at the start, but can be revealed incrementally."
+            }
+          ],
+          "worked_solutions": [
+            {
+              "type": "text",
+              "data": "The first item in this solution could be used to provide guidance on how to approach the question, without giving much away."
+            },
+            {
+              "type": "text",
+              "data": "Text, equations and media can be used to described the logical steps used to arrive to the answer! Here's a random example:"
+            },
+            {
+              "type": "latex",
+              "data": "\\sqrt{a+b\\varepsilon}=\\sqrt{a}+\\frac{b \\varepsilon}{2 \\sqrt{a}}-\\frac{b^{2} \\varepsilon^{2}}{8 a^{3 / 2}}+\\frac{b^{3} \\varepsilon^{3}}{16 a^{5 / 2}}-\\frac{5 b^{4} \\varepsilon^{4}}{128 a^{7 / 2}}+O\\left(\\varepsilon^{5}\\right)"
+            },
+            {
+              "type": "text",
+              "data": "To use the given expansion, note that \\(a=1/4\\) and \\(b=1\\). This gives \\[x=\\frac{1}{2}-\\left(\\frac{1}{2}+\\varepsilon-\\varepsilon^2+2\\varepsilon^3+O\\left(\\varepsilon^4\\right)\\right).\\]"
+            },
+            {
+              "type": "latex",
+              "data": "x=-\\varepsilon+\\varepsilon^2-2\\varepsilon^3+O\\left(\\varepsilon^4\\right)."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Algorithms and Response Area Chaining",
+      "master_content": [
+        {
+          "type": "text",
+          "data": "Usually, for a question which requires multiple steps to answer, if a mistake is made at an early stage then all the following steps are marked as incorrect. This isn't an optimal learning experience for a student, which is why this system incorporates the idea of an 'error carried forward' question."
+        },
+        {
+          "type": "text",
+          "data": "Very simply, instead of comparing each answer provided by a student to a fixed set of pre-determined answers - this system will use the student's own responses to preceding steps, and perform the appropriate logic and mathematical operations to arrive to the right answer. This means a user is only penalized for the specific error they made."
+        },
+        {
+          "type": "text",
+          "data": "Although this idea sounds conceptually simple, it poses an interesting and tricky implementation problem - the system needs to be able to carry out the same steps a student does to arrive to an answer, it needs to understand math, equations and anything else we can think when authoring a question."
+        }
+      ],
+      "parts": [{ "content": [{ "type": "text", "data": "" }] }]
+    },
+    {
+      "title": "Advanced use of Response Areas",
+      "master_content": [
+        { "type": "text", "data": "*This section is a work in progress*" }
+      ],
+      "parts": [
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "Below is an example of an 'error carried forward' or 'linked answer box' senario. In this case, the answer to the first response area is fixed to \\( A = \\begin{bmatrix} 4 & 5 \\\\ 6 & 7 \\end{bmatrix}\\)"
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "Matrix",
+                "shape": [2, 2],
+                "answer": [
+                  [4, 5],
+                  [6, 7]
+                ],
+                "gradeFunction": "arrayEqual",
+                "name": "first_answer",
+                "pre_response_text": "\\( A =  \\)"
+              }
+            },
+            {
+              "type": "text",
+              "data": "Please enter \\( tr(A) \\) into the next response area. If you entered the correct matrix from before, then the correct answer should be 11."
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "NumberInput",
+                "algorithmPipeline": [
+                  {
+                    "algorithmFunction": "computeTrace",
+                    "params": {
+                      "from": "first_answer",
+                      "to": "answer"
+                    }
+                  }
+                ],
+                "requirements": ["first_answer"],
+                "gradeFunction": "isExactEqual",
+                "gradeParams": {
+                  "type": "int"
+                },
+                "pre_response_text": "\\( tr(A) =  \\)"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

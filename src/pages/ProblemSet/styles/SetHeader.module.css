@@ -1,0 +1,26 @@
+.headerContainer {
+  padding-left: 2rem;
+  padding-top: 1.1rem;
+}
+
+.headerId {
+}
+
+.headerTitle {
+}
+
+.pdfLink {
+  color: black;
+  padding-left: 0.5rem;
+  text-decoration: none;
+  margin-top: 0.2rem;
+}
+
+.pdfLink:hover {
+  color: var(--theme-fg-dark-color);
+  cursor: pointer;
+}
+
+.pdfIcon {
+  padding: 0.1rem;
+}

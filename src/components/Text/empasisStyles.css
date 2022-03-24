@@ -1,0 +1,6 @@
+code {
+  background-color: var(--custom-ececec);
+  border-radius: 4px;
+  padding: 0.1rem 0.3rem;
+  font-family: monospace;
+}

@@ -1,0 +1,219 @@
+.icons {
+  display: inline-flex;
+  justify-content: flex-end;
+  position: relative;
+  max-width: 18rem;
+  min-width: 14rem;
+  flex-grow: 1;
+  margin-left: auto;
+  transition: max-width 0.2s ease-out;
+}
+
+.icons-flexbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.icons svg {
+  fill: none;
+  stroke: none;
+}
+
+.difficulty-rating-svg {
+  height: 4rem;
+  align-self: center;
+  visibility: visible;
+  z-index: 2;
+}
+
+.par-time-svg {
+  height: 6rem;
+  align-self: center;
+  visibility: visible;
+  z-index: 2;
+}
+
+.icons text {
+  stroke: none;
+  font-weight: 500;
+  font-family: Arial;
+  text-anchor: middle;
+  dominant-baseline: central;
+  fill: #037393;
+}
+
+.skill-text {
+  opacity: 0%;
+  font-size: 0.5rem;
+  transition: opacity 0.2s linear 0s;
+}
+
+.star {
+  opacity: 20%;
+  stroke: none;
+  fill: #037393;
+  transform: translate(0, 0);
+  transition: transform 0.2s ease-out 0s;
+}
+
+.star.active {
+  opacity: 100%;
+}
+
+.clock {
+  opacity: 20%;
+  stroke-width: 2;
+  stroke-linecap: butt;
+  stroke: #037393;
+}
+
+.lb {
+  opacity: 100%;
+}
+
+.ub {
+  opacity: 50%;
+}
+
+.tick {
+  stroke-width: 0.5;
+  stroke-linecap: round;
+  stroke: #037393;
+}
+
+.number {
+  transform: translate(0, 0);
+  font-size: 0.38rem;
+  transition: transform 0.2s ease-out 0s, font-size 0.2s linear 0s;
+}
+
+.mins {
+  opacity: 0%;
+  font-size: 0.3rem;
+  transition: opacity 0.2s linear 0s;
+}
+
+.icons-info {
+  visibility: hidden;
+  color: white;
+  opacity: 95%;
+  position: absolute;
+  right: 0rem;
+  top: 0rem;
+  z-index: 1;
+  width: 100%;
+  padding: 1rem;
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-areas:
+    "icon_space"
+    "guidance";
+  border-radius: 4rem;
+  background-color: #037393;
+  clip-path: inset(0.75rem 0.75rem calc(100% - 7.25rem) 0.75rem round 4rem);
+  transition: clip-path 0.2s ease-out 0s, visibility 0s linear 0s;
+}
+
+.icons-info .guidance {
+  font-size: 1.1rem;
+  grid-area: guidance;
+  align-self: center;
+}
+
+.icons-info .icon-space {
+  height: 6rem;
+  grid-area: icon_space;
+}
+
+.icons-info .blurb {
+  font-size: 1.1rem;
+  grid-area: blurb;
+}
+
+.icons:hover {
+  max-width: 26rem;
+}
+
+.icons:hover .icons-info {
+  clip-path: inset(0%);
+  visibility: visible;
+  backdrop-filter: blur(2px);
+}
+
+.icons:hover text {
+  fill: white;
+}
+
+.icons:hover .difficulty-rating-svg .star {
+  fill: white;
+  transform: translate(0, -4px);
+}
+
+.icons:hover .difficulty-rating-svg .skill-text {
+  opacity: 100%;
+}
+
+.icons:hover .par-time-svg .number {
+  transform: translate(0, -1.5px);
+  font-size: 0.4rem;
+}
+
+.icons:hover .par-time-svg .mins {
+  opacity: 100%;
+}
+
+.icons:hover .par-time-svg .clock {
+  stroke: white;
+}
+
+.icons:hover .par-time-svg .tick {
+  stroke: white;
+}
+
+/* Conditional Styles */
+.icons-info.with-statement {
+  grid-template-areas:
+    "icon_space"
+    "guidance"
+    "blurb";
+  border-radius: 1rem 4rem 1rem 1rem;
+  background-color: #007393;
+}
+
+.icons:not(.with-statement):hover {
+  max-width: 18rem;
+}
+
+.icons.with-statement:not(:hover) text {
+  fill: #007393;
+}
+
+.icons:not(.with-statement) text {
+  fill: #007393;
+}
+
+.icons.with-statement:not(:hover) .difficulty-rating-svg .star {
+  fill: #007393;
+}
+
+.icons:not(.with-statement) .difficulty-rating-svg .star {
+  fill: #007393;
+}
+
+.icons.with-statement:not(:hover) .par-time-svg .clock {
+  stroke: #007393;
+}
+
+.icons:not(.with-statement) .par-time-svg .clock {
+  stroke: #007393;
+}
+
+.icons.with-statement:not(:hover) .par-time-svg .tick {
+  stroke: #007393;
+}
+
+.icons:not(.with-statement) .par-time-svg .tick {
+  stroke: #007393;
+}

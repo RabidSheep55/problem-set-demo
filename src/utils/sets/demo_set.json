@@ -1,0 +1,367 @@
+{
+  "_id": "Demo",
+  "name": "Early demo",
+  "description": "Example set, shows off the features of this system",
+  "number": 1,
+  "questions_data": [
+    {
+      "title": "Introduction",
+      "master_content": [
+        {
+          "type": "text",
+          "data": "Welcome to the demo. All answers are provided so you can try entering them and getting feedback."
+        },
+        {
+          "type": "media",
+          "data": [
+            "imperial.jpg"
+          ]
+        }
+      ],
+      "parts": [
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "What is the answer to life? (*Clue:* `42`)."
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "NumberInput",
+                "answer": 42,
+                "gradeFunction": "isExactEqual",
+                "gradeParams": {
+                  "type": "float"
+                }
+              }
+            },
+            {
+              "type": "text",
+              "data": "Feedback is generated here with a Python script which compared your input to the number 42. We provide standard scripts, and teachers can also create their own (in any language)."
+            },
+            {
+              "type": "text",
+              "data": "We provided a simple string of text as feedback but teachers can programme more advanced feedback, for example \n\n * catching popular errors and giving constructive feedback\n * feedback based on previous performance, or timing, or the way the answer was expressed. \n * rich content, such as videos, can be used\n\nTeachers can refine their technique; but we can also use advanced algorithms to help us prioritise where to improve the feedback we provide."
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "The answer to this question is \\( 150\\ g \\)."
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "NumberInput",
+                "answer": 150,
+                "gradeFunction": "isSimilar",
+                "gradeParams": {
+                  "atol": 1
+                },
+                "post_response_text": "grams"
+              }
+            },
+            {
+              "type": "text",
+              "data": "Try using different units, e.g. \\(0.15\\ \\mathrm{kg}\\), \\(0.33\\ \\mathrm{pounds}\\), \\(0.15\\ \\mathrm{N/(m /s^2)}\\). What is remarkable about this demonstration is that it uses Wolfram|Alpha to process the response! It's just one example of how Lambda feedback can use practically *any* technology to process inputs and help generate feedback."
+            },
+            {
+              "type": "text",
+              "data": "So it is not a monolithic piece of software; it is an architecture to connect teaching needs to the outside world of technology, which is forever advancing."
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "LaTeX is easily input and displayed inline (e.g. \\( \\pi \\simeq 3\\)), or as full equations, e.g."
+            },
+            {
+              "type": "latex",
+              "data": "P_{,i} + \\rho f^{b}_{i} + \\mu v_{i,jj} = \\rho \\frac{D v_i}{D t} + \\rho v_{i,j} v_j"
+            },
+            {
+              "type": "text",
+              "data": "Student responses can also be interpreted mathematically."
+            },
+            {
+              "type": "text",
+              "data": "Try entering \\(2*x + 4 \\):"
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "ExpressionInput",
+                "pre_response_text": "\\( f(x) = \\)",
+                "answer": "2*x + 4",
+                "gradeFunction": "symbolicEqual"
+              }
+            },
+            {
+              "type": "text",
+              "data": "Feedback was generated with a Python script that tested the mathematical equivalence of your input and the correct answer. Try writing the expression differently e.g. \\(x+x+5-1\\).\n\nTeachers can programme their feedback (in any language!) to catch any cases they wish and customise the feedback accordingly."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "More demonstrations",
+      "master_content": [
+        {
+          "type": "text",
+          "data": "This question contains some more demonstrations."
+        }
+      ],
+      "parts": [
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "A simple text match is demonstrated here. The answer is `incompressible`."
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "TextInput",
+                "isStandalone": true,
+                "answer": "incompressible",
+                "gradeFunction": "isExactEqual",
+                "gradeParams": {
+                  "type": "str"
+                }
+              }
+            },
+            {
+              "type": "text",
+              "data": "The Python script to mark this response is unkind. It looks for an exact string match so doesn't permit capital letters. Teachers can programme feedback to be lenient in ways that suit them, e.g. multiple possible correct answers, or more advanced technology like with Nautral Language Processing (NLP). Any technology can be applied; this software provides the gateway (but the user still needs to develop the feedback algorithms!)."
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "Given that the speed of sound is approximately 343 m/s, estimate the length of this pipeline."
+            },
+            {
+              "type": "media",
+              "data": [
+                "https://www.youtube.com/watch?v=p8GcHoSIPDg"
+              ]
+            },
+            {
+              "type": "text",
+              "data": "*Hint : estimate the time for an echo to return, then distance is* \\(\\text{speed*time/2}\\)."
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "NumberInput",
+                "answer": 189,
+                "gradeFunction": "isSimilar",
+                "gradeParams": {
+                  "rtol": 0.3
+                },
+                "pre_response_text": "Length = ",
+                "post_response_text": "m"
+              }
+            },
+            {
+              "type": "text",
+              "data": "Unlike other software, we can link further questions to this estimate from the student. We apologise that the demonstration of this feature is not available yet!"
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "The answer to this question is 'True'."
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "TrueFalse",
+                "answer": 1,
+                "gradeFunction": "isExactEqual",
+                "gradeParams": {
+                  "type": "int"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "Another basic response area type might be multiple choice:"
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "MultipleChoice",
+                "options": [
+                  "First option",
+                  "Second option",
+                  "Third (and correct) option"
+                ],
+                "answer": [
+                  0,
+                  0,
+                  1
+                ],
+                "gradeFunction": "arrayEqual"
+              }
+            },
+            {
+              "type": "text",
+              "data": "As you can see, symbolic mathematical expressions can be added as options, which can also optionally be shuffled on page reload. (Answer is \\( \\pi = 3 \\) and \\( 3 = \\pi \\))"
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "MultipleChoice",
+                "options": [
+                  "\\( 4x^2 + 2 = \\frac{\\delta y}{\\delta x} \\)",
+                  "\\( \\pi = 3 \\)",
+                  "\\( K_{iakb} U^{b}_{k} = f^{a}_{i} \\)",
+                  "\\( 3 = \\pi \\)"
+                ],
+                "answer": [
+                  0,
+                  1,
+                  0,
+                  1
+                ],
+                "shuffle": true,
+                "gradeFunction": "arrayEqual"
+              }
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "Matrices are often difficult and annoying to enter in online grading systems. Here we have an an area dedicated to a matrix. The answer to this next one is:"
+            },
+            {
+              "type": "latex",
+              "data": "\\pmatrix{ 3 \\pm 0.5 & 1 \\pm 0.5 \\\\ 4 \\pm 0.5 & 1 \\pm 0.5}"
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "Matrix",
+                "shape": [
+                  2,
+                  2
+                ],
+                "gradeFunction": "arrayEqual",
+                "gradeParams": {
+                  "atol": 0.5
+                },
+                "answer": [
+                  [
+                    3,
+                    1
+                  ],
+                  [
+                    4,
+                    1
+                  ]
+                ]
+              }
+            },
+            {
+              "type": "text",
+              "data": "Again, there is nothing stopping the answer to each of the cells of the matrix to be equations, symbols, math or latex! But this should be made clear by the question."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Answers and Worked Solutions",
+      "master_content": [
+        {
+          "type": "text",
+          "data": "This question contains answers or solutions for the user to view."
+        }
+      ],
+      "parts": [
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "Try the *help* button to see the answer."
+            }
+          ],
+          "final_answer": [
+            {
+              "type": "text",
+              "data": "The answer is here, via a small 'barrier' - two clicks in different places - developed by students to help maintain discipline. This is 'nudge theory' similar to putting the lid on the cookie jar."
+            }
+          ]
+        },
+        {
+          "content": [
+            {
+              "type": "text",
+              "data": "This question provides - in the help menu - both an answer and worked solutions. "
+            },
+            {
+              "type": "text",
+              "data": "If I have two apples and a pear, how many pieces of fruit do I have? "
+            },
+            {
+              "type": "response_area",
+              "data": {
+                "type": "NumberInput",
+                "answer": 3,
+                "gradeFunction": "isSimilar",
+                "gradeParams": {
+                  "type": "int"
+                }
+              }
+            }
+          ],
+          "final_answer": [
+            {
+              "type": "text",
+              "data": "3 pieces of fruit."
+            }
+          ],
+          "worked_solutions": [
+            {
+              "type": "text",
+              "data": "First we need to check if all the items listed are fruit. "
+            },
+            {
+              "type": "text",
+              "data": "They are all fruit. Counting each type of fruit:"
+            },
+            {
+              "type": "text",
+              "data": "2 apples, and 1 pear, so the calculation we require is:"
+            },
+            {
+              "type": "text",
+              "data": "\\(2+1=3\\)"
+            },
+            {
+              "type": "text",
+              "data": "Hence 3 pieces of fruit. \n\nNote that the solutions can be revealed step-by-step so are a useful study guide, not revealing too much. Students can also reveal all if they wish. This is up to the taste of the teacher; in our experience, it is good practice and well received by students. "
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

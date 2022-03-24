@@ -1,0 +1,25 @@
+.problemSet {
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebarContainer {
+  width: 340px;
+  height: calc(100vh - 60px);
+}
+
+.sidebar {
+  position: fixed;
+  overflow-y: auto;
+  height: 100%;
+  max-width: 300px;
+  /*  */
+  border-left: 1px solid var(--custom-ececec);
+  margin-left: 40px;
+  /*  */
+  margin-right: -999px;
+  padding-right: 999px;
+  background-color: var(--custom-f7f7f7);
+  /*  */
+  overflow-y: auto;
+}

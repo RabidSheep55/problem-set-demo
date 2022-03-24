@@ -1,0 +1,48 @@
+.navButton {
+  margin: 0 1rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  background-color: hsl(0, 0%, 93%);
+  flex: 1 1 150px;
+  max-width: 12rem;
+  min-width: 7rem;
+  cursor: pointer;
+  border: 0px solid transparent;
+  /*  */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*  */
+  line-height: 1;
+  box-shadow: var(--shadow-tiny);
+}
+
+.eqh {
+}
+
+.st {
+  background-color: hsl(145, 50%, 70%);
+}
+
+.st:hover,
+.st.open {
+  background-color: hsl(145, 50%, 50%);
+}
+
+.fa {
+  background-color: hsl(37, 80%, 90%);
+}
+
+.fa:hover,
+.fa.open {
+  background-color: hsl(37, 80%, 70%);
+}
+
+.ws {
+  background-color: hsl(3, 70%, 90%);
+}
+
+.ws:hover,
+.ws.open {
+  background-color: hsl(3, 83%, 63%);
+}

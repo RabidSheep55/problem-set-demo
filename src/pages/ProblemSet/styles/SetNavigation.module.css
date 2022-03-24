@@ -1,0 +1,50 @@
+.nav {
+  margin-top: 50px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.item:hover {
+  color: var(--custom-6d6d6d);
+}
+
+.active {
+  color: var(--custom-1a1a1a);
+  border-bottom: 1px solid transparent;
+  font-weight: 700;
+}
+
+.itemNumber {
+  font-size: 1.2rem;
+  padding: 1rem;
+}
+
+.itemName {
+  font-size: 1.2rem;
+}
+
+.activeBox {
+  width: 4px;
+  height: 4rem;
+  border-left: 4px solid var(--theme-fg-darker-color);
+  padding-left: 16px;
+  position: absolute;
+  left: 0;
+}

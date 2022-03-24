@@ -1,0 +1,28 @@
+.nav {}
+
+.button {
+  background-color: var(--custom-ececec);
+  border: 0;
+  padding: 0.4rem;
+  font-family: inherit;
+  border: 2px solid var(--custom-d0d0d0);
+  font-size: 0.9rem;
+}
+
+.button:hover {
+  background-color: var(--custom-d0d0d0);
+}
+
+.stepUp {
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.stepDown {
+  border-radius: 0 0.5rem 0.5rem 0;
+  border-left: 0;
+  margin-right: 1rem;
+}
+
+.revealAll {
+  border-radius: 0.5rem;
+}

@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.inputContainer {
+  padding-right: 1rem;
+}
+
+.inputWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.preText {
+  margin-right: 1rem;
+}
+
+.postText {
+  margin-left: 1rem;
+}
+
+.input {
+}
+
+.powered {
+  font-size: 0.7rem;
+  font-style: italic;
+  color: orange;
+  margin-bottom: 0;
+}
+
+.interpContainer {
+  border-left: 1px dotted black;
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.interpText {
+  font-style: italic;
+  color: darkgrey;
+  font-size: 12px;
+}
+
+.eq {
+  margin: 1rem;
+}

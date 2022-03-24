@@ -1,0 +1,17 @@
+.correct {
+  padding: 0.5rem;
+  margin-bottom: 0;
+  background-color: #58d68d;
+}
+
+.incorrect {
+  padding: 0.5rem;
+  margin-bottom: 0;
+  background-color: #ec7063;
+}
+
+.error {
+  padding: 0.5rem;
+  margin-bottom: 0;
+  background-color: #58aed6;
+}

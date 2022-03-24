@@ -1,0 +1,14 @@
+.leftBorder {
+  border-left: 5px solid var(--custom-ececec);
+}
+
+.resAreaContainer {
+  padding: 1rem;
+}
+
+.response-area {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+}

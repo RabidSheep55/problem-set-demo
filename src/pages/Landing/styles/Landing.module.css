@@ -1,0 +1,222 @@
+.containerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f2f6f7;
+  width: 100vw;
+  z-index: -100;
+  position: absolute;
+}
+
+.container {
+  height: inherit;
+  width: 80%;
+  display: grid;
+  grid-template: "title features" auto "description features" auto "button button" auto / auto 1fr;
+  position: relative;
+  background-color: #f2f6f7;
+  padding: 4rem;
+  border-radius: 1rem;
+}
+
+.container::before {
+  content: "";
+  background: linear-gradient(130deg, #0582a5, #0582a5 41.07%, #0582a5 76.05%);
+  width: 85%;
+  height: 85%;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  z-index: -1;
+  border-radius: 1.4rem 0 0 0;
+}
+
+.container::after {
+  content: "";
+  background: linear-gradient(130deg, #1ba9d1, #1ba9d1 41.07%, #1ba9d1 76.05%);
+  width: 85%;
+  height: 85%;
+  position: absolute;
+  top: calc(15% + 10px);
+  left: calc(15% + 10px);
+  z-index: -1;
+  border-radius: 0 0 1.4rem 0;
+}
+
+.titleContainer {
+  grid-area: title;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  text-align: left;
+  margin-top: 0;
+  min-width: 400px;
+  max-width: 1150px;
+  font-size: 2.3rem;
+  font-weight: 600;
+}
+
+.description {
+  grid-area: description;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  max-width: 800px;
+  min-width: 320px;
+  margin-top: 0;
+  font-weight: 300;
+}
+
+.username {
+  font-weight: 600;
+}
+
+.info {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgb(165, 165, 165);
+  line-height: 10px;
+}
+
+.effect {
+  font-weight: 800;
+  background: -webkit-radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header1 {
+  font-weight: 800;
+  background: -webkit-radial-gradient(circle, #0582a5 0%, #0582a5 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.buttonContainer {
+  grid-area: button;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.button {
+  border: none;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  padding: 0.7rem 1.2rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  color: #ecf0f1;
+  background-color: #2c3e50;
+  position: relative;
+  box-shadow: var(--shadow-small);
+  position: relative;
+  z-index: 2;
+}
+
+.button:hover {
+  filter: brightness(110%);
+}
+
+.button:before {
+  content: "";
+  background: linear-gradient(130deg, #7c7c9e, #1ba9d1 90%, #1ba9d1 95%);
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  z-index: -1;
+  border-radius: 0.7rem;
+}
+
+.microsoft {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  margin-left: 1ch;
+}
+
+.features {
+  grid-area: features;
+  font-size: 1.2rem;
+  min-width: 300px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  margin-top: 0;
+}
+
+.features li {
+  margin-top: 1.3rem;
+  width: fit-content;
+  background-color: #dadae9;
+  padding: 0.5rem 0.8rem;
+  border-radius: 4px;
+  box-shadow: var(--shadow-tiny);
+}
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    grid-template: "title title" "description features" "button button";
+  }
+
+  .features {
+    margin-top: -40px;
+  }
+}
+
+@media only screen and (max-width: 823px) {
+  .container {
+    grid-template: "title" "description" "features" "button";
+    width: calc(100% - 4rem);
+    padding: 2rem;
+  }
+
+  .container::before,
+  .container::after {
+    content: none;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .features {
+    margin-top: 0;
+    align-items: flex-start;
+  }
+
+  .features li {
+    margin-top: 0.5rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .features {
+    padding-left: 0;
+    min-width: 0;
+  }
+
+  .description {
+    min-width: 0;
+  }
+
+  .title {
+    min-width: 0;
+  }
+}

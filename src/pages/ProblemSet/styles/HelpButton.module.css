@@ -1,0 +1,22 @@
+.container {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.button {
+  padding: 6px 12px;
+  background-color: var(--custom-ececec);
+  width: 10rem;
+  margin-left: 2rem;
+  border: none;
+  border-radius: 4px;
+  user-select: none;
+  box-shadow: var(--shadow-tiny);
+}
+
+.button:hover {
+  background-color: var(--custom-d0d0d0);
+  cursor: pointer;
+}

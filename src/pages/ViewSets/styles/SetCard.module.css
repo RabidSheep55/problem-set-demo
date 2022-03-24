@@ -1,0 +1,33 @@
+.container {
+  display: grid;
+  grid-template: "title icons" auto "description icons" 1fr / 1fr 70px;
+  background: var(--custom-f7f7f7);
+  border-radius: 1rem;
+  margin: 0.5rem;
+  height: 100%;
+  box-shadow: var(--shadow-small);
+}
+
+.container:hover {
+  background: var(--custom-d0d0d0);
+  cursor: pointer;
+}
+
+.title {
+  grid-area: title;
+  margin: 1.1rem 1.1rem 0 1.1rem;
+  line-height: 1.8rem;
+}
+
+.description {
+  grid-area: description;
+  margin: 0.5rem 1.1rem;
+}
+
+.icons {
+  grid-area: icons;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}

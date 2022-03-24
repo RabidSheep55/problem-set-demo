@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.title {
+  font-size: 4rem;
+  line-height: 3.3rem;
+  margin-bottom: 0;
+  color: var;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.card {
+  flex: 1 1 50%;
+  min-width: 380px;
+  margin-bottom: 1rem;
+  /* Remove the defautl react-router Link styles */
+  color: inherit;
+  text-decoration: none;
+}
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.error {
+  background-color: var(--theme-error);
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.reload {
+  border: 0;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  background-color: var(--custom-ececec);
+}
+
+.reload:hover {
+  background-color: var(--theme-fg-lighter-color);
+}
+
+.reload:active {
+  transform: translateY(2px);
+}
